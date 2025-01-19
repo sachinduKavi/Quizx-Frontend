@@ -1,0 +1,22 @@
+
+footer {
+    background-color: #1c1c1c; 
+    color: #f1f1f1; 
+    margin-bottom: 5%;
+    padding: 10% 8% 5% 8%;
+  }
+  
+  .footer-brand h4 {
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .copyright{
+    padding-top: 100px;
+  }
+  
+  nav ul li a:hover,
+  .social-icons a:hover {
+    color: #ffffff; 
+  }
+  

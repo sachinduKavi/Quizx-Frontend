@@ -1,0 +1,72 @@
+.content-border {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.content-border .steps {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.content-border .steps img {
+    height: 15px;
+    opacity: 0.7;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.content-border .steps p {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.steps-description {
+    font-size: 0.75rem;
+    margin-bottom: 10px;
+}
+
+.content-border .add-field-btn {
+    width: fit-content;
+    margin: 15px 0;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.content-border hr{
+    border-top: 0.5px solid rgba(0, 0, 0, 0.199);
+    margin: 20px 0;
+}
+
+.content-border .main-content {
+    display: inherit;
+    flex-direction: inherit;
+    flex: 1 1 0;
+
+}
+
+.content-border .content-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+
+.content-border .delete-btn {
+    background-color: transparent;
+    color: red;
+    border: 0;
+    padding: 5px 20px !important;
+}
+
+.content-border .delete-btn:hover {
+    background-color: #FFE4E6 !important;
+    color: red !important;
+}
+
+.content-border .save-publish {
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+}

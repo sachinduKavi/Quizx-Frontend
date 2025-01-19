@@ -1,0 +1,114 @@
+.multi-choice {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.multi-choice .details {
+    align-items: center;
+}
+
+.details > h4 {
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.multi-choice img {
+    width: 18px;
+    opacity: 0.5;
+}
+
+.multi-choice .form-type {
+    color: #9CA3BC;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.multi-choice .setting-row {
+    justify-content: space-between;
+    margin-bottom: 20px;
+}   
+
+.multi-choice .content {
+    display: flex;
+    flex-direction: column;
+}
+
+.multi-choice .content p {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+
+.multi-choice .square-btn {
+    aspect-ratio: 1;
+    padding: 5px;
+    margin: 0 0 0 5px;
+    width: fit-content;
+}
+
+.multi-choice .delete-btn {
+    background-color: black;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.multi-choice .content input {
+    margin-bottom: 15px;
+}
+
+.multi-choice .selection-row {
+    align-items: center;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+
+.multi-choice .selection-row > p {
+    margin: 0 5px 0 0;
+}
+
+.multi-choice .upload-btn {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.multi-choice .black-box {
+    aspect-ratio: 1;
+    height: 100%;
+    background-color: black;
+}
+
+.multi-choice .final-button {
+    margin-top: 50px;
+}
+
+.multi-choice .final-button Button {
+    flex: 1 1 0;
+    font-size: 14px;
+}
+
+.multi-choice .save-btn {
+    background-color: black;
+    color: white;
+    margin-right: 5px;
+}
+
+.multi-choice .delete-button {
+    border: 0;
+    color: red;
+    margin-left: 5px;
+}
+
+.multi-choice .selected-image {
+    width: 100%;
+    height: fit-content;
+    margin-top: 5px;
+}
+
+.multi-choice .selected-image > img {
+    width: 100%;
+    opacity: 1;
+}
+
+
