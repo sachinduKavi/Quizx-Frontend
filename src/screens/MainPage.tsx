@@ -12,6 +12,7 @@ import '../style/main-page.css'
 
 export default function MainPage() {
     const navigate = useNavigate()
+    
 
     const [editable, setEditable] = useState<Boolean>(false)
     const [activePanel, setPanel] = useState<String>("Content")
@@ -31,9 +32,7 @@ export default function MainPage() {
         <div className="row">
 
             {
-                !editable ?
-            
-
+            !editable ?    
             <div className="panel">
                 <div className="nav-bar">
                     <img src={CubeIcon} alt="cube icon" />
@@ -71,7 +70,8 @@ export default function MainPage() {
             </div>
 
             {
-                choiceView && <AddPop choiceView={choiceView} setChoiceView={setChoiceView} setEditable={setEditable}
+
+                choiceView && <AddPop choiceView={choiceView} setChoiceView={setChoiceView} setEditable={setEditable}     
                     setCurrentPanel={setCurrentPanel} setActiveDisplay={setActiveDisplay} formList={{formList: formList, setFormList: setFormList}}
                 />
 

@@ -2,12 +2,21 @@ import React from 'react'
 import ContentIcon from '../assets/icons/content.svg'
 import SingleForm from './SingleForm'
 import {PlusOutlined, CloudFilled, DeleteFilled} from '@ant-design/icons'
+import { useSelector } from 'react-redux'
+import { RootState } from '../redux/store'
 
 import {Input, Button} from 'antd'
 
 import '../style/content.css'
 
 export default function Content(props: any) {
+  const globalState = useSelector((state: RootState) => state.global)
+
+  const quizSubmission = async() => {
+    console.log('Form submission ', globalState)
+  }
+
+
   return (
     <div className='content-border'>
         <div className="main-content">
@@ -35,7 +44,7 @@ export default function Content(props: any) {
         </div>
 
         <div className="content-footer">
-            <Button icon={<CloudFilled/>} className='save-publish'>Save & Published</Button>
+            <Button icon={<CloudFilled/>} onClick={quizSubmission} className='save-publish'>Save & Published</Button>
             <Button icon={<DeleteFilled/>} className='delete-btn'>Delete</Button>
         </div>
         

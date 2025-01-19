@@ -9,7 +9,6 @@ import Addquiz from './screens/Addquiz'
 
 
 function App() {
-
   return (
     <BrowserRouter>
       <Routes>
