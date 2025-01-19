@@ -26,6 +26,7 @@ function MultiDisplay() {
 
             <Input placeholder='Add question description (optional)' 
                 className='display-description'
+                onChange={(e) => {updateGlobal('description', e.target.value)}}
             value={globalValue.description}/>
 
 
@@ -40,18 +41,12 @@ function MultiDisplay() {
                         )
                     })
                 }
-
                 
             </div>
         </div>
 
 
-        {
-            globalValue.imageFile !== null &&
-            <div className="column display-column">
-                <img src={URL.createObjectURL(globalValue.imageFile)} alt="image load failed" width='100%'/>
-            </div>
-        }   
+        
         
     </div>
   )
