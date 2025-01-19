@@ -3,6 +3,7 @@ import CubeIcon from '../assets/icons/cube.svg'
 import SettingsIcon from '../assets/icons/settings.svg'
 import AddPop from '../components/AddPop'
 import Welcome from '../components/display/Welcome'
+import { useNavigate } from 'react-router-dom'
 
 
 import Content from '../components/Content'
@@ -10,14 +11,12 @@ import Content from '../components/Content'
 import '../style/main-page.css'
 
 export default function MainPage() {
+    const navigate = useNavigate()
 
     const [editable, setEditable] = useState<Boolean>(false)
     const [activePanel, setPanel] = useState<String>("Content")
-
     const [formList, setFormList] = useState<Array<Object>>([]) // Dynamic form list 
-
     const [choiceView, setChoiceView] = useState<Boolean>(false)    
-
     const [activeDisplay, setActiveDisplay] = useState<JSX.Element>(<Welcome/>) // What displays on the screen
     const [currentPanel, setCurrentPanel] = useState<JSX.Element>(<div></div>) // Currently active panel
 
@@ -39,7 +38,7 @@ export default function MainPage() {
                 <div className="nav-bar">
                     <img src={CubeIcon} alt="cube icon" />
 
-                    <p className='nav previous'>Dashboard &#10095;</p>
+                    <p className='nav previous' onClick={() => {navigate('/dashboard')}}>Dashboard &#10095;</p>
                     <p className='nav'>Form name</p>
 
                     <div className="last-element">
@@ -50,9 +49,8 @@ export default function MainPage() {
 
                 <div className="navigation">
                     <div className={`inactive ${activePanel === 'Content' ? 'active': '' }`} onClick={() => {setPanel('Content')}}>Content</div>
-                    <div className={`inactive ${activePanel === 'Design' ? 'active': '' }`} onClick={() => {setPanel('Design')}}>Design</div>
                     <div className={`inactive ${activePanel === 'Share' ? 'active': '' }`} onClick={() => {setPanel('Share')}}>Share</div>
-                    <div className={`inactive ${activePanel === 'Replies' ? 'active': '' }`} onClick={() => {setPanel('Replies')}}>Replies</div>
+                    <div className={`inactive ${activePanel === 'Submissions' ? 'active': '' }`} onClick={() => {setPanel('Submissions')}}>Submissions</div>
                 </div>
 
 

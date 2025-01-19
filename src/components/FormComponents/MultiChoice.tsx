@@ -118,35 +118,9 @@ export default function MultiChoice(props: any) {
             </div>
 
             
-            <div className="row selection-row">
-                <p>link</p>
-                
-
-                <Button icon={<UploadOutlined/>} className='upload-btn' onClick={() => {
-                    // Select image from user computer
-                    imageRef.current?.click()
-                }}>Upload</Button>
-            </div>
-
-            <div className="selected-image">
-                {
-                    globalValue.imageFile &&
-                    <img src={URL.createObjectURL(globalValue.imageFile)} alt="" />
-                }
-            </div>
             
-            <div className="row selection-row">
-                <p>placement</p>
-
-                <div className="row" style={{width: 'fit-content'}}>
-                    <Button onClick={() => {
-                        updateGlobal('placement', true)
-                    }} disabled={globalValue.placement}><AlignLeftOutlined/><div className='black-box'></div></Button>
-                    <Button onClick={() => {
-                        updateGlobal('placement', false)
-                    }} disabled={!globalValue.placement}><div className='black-box'></div><AlignLeftOutlined/></Button>
-                </div>
-            </div>
+            
+            
         </div>
 
         <div className="final-button row">
