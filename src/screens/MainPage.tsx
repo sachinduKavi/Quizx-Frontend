@@ -4,7 +4,12 @@ import SettingsIcon from '../assets/icons/settings.svg'
 import AddPop from '../components/AddPop'
 import Welcome from '../components/display/Welcome'
 import { useNavigate } from 'react-router-dom'
-
+import Input from 'antd/es/input/Input'
+import { useSelector, useDispatch } from 'react-redux'
+import { setQuestionList } from '../redux/question-list'
+import { RootState, AppDispatch } from '../redux/store'
+import Quiz from '../DataModels/QuizModel'
+import { QuizInterface } from '../DataModels/QuizModel'
 
 import Content from '../components/Content'
 
@@ -12,15 +17,24 @@ import '../style/main-page.css'
 
 export default function MainPage() {
     const navigate = useNavigate()
-    
+    const dispatch: AppDispatch = useDispatch()
+    const formList = useSelector((state: RootState) => state.questionList)
 
     const [editable, setEditable] = useState<Boolean>(false)
     const [activePanel, setPanel] = useState<String>("Content")
-    const [formList, setFormList] = useState<Array<Object>>([]) // Dynamic form list 
+    // const [formList, setFormList] = useState<Array<Object>>([]) // Dynamic form list 
     const [choiceView, setChoiceView] = useState<Boolean>(false)    
     const [activeDisplay, setActiveDisplay] = useState<JSX.Element>(<Welcome/>) // What displays on the screen
     const [currentPanel, setCurrentPanel] = useState<JSX.Element>(<div></div>) // Currently active panel
+    const [formDetails, setFormDetails] = useState<any>({
+        name: '',
 
+    })
+
+    // Update global question list
+    const setFormList = (newList: Array<Object>) => {
+        dispatch(setQuestionList(newList))
+    }
 
     useEffect(() => {
         console.log('form list', formList)
@@ -38,8 +52,11 @@ export default function MainPage() {
                     <img src={CubeIcon} alt="cube icon" />
 
                     <p className='nav previous' onClick={() => {navigate('/dashboard')}}>Dashboard &#10095;</p>
-                    <p className='nav'>Form name</p>
-
+                   <Input
+                    value={formDetails.name}
+                    onChange={((e) => setFormDetails({...formDetails, name: e.target.value}))}
+                    placeholder='Form name'
+                    style={{fontSize: '12px', padding: '0 2px', flex: '1 1 0', width: '100%', borderRadius: 0}}/>
                     <div className="last-element">
                         <img src={SettingsIcon} alt="settings" />
                     </div>
@@ -54,7 +71,7 @@ export default function MainPage() {
 
 
                 <div className="editor-panel">
-                    {activePanel === 'Content' && <Content newField={setChoiceView} formList={formList}/>}
+                    {activePanel === 'Content' && <Content newField={setChoiceView} formList={formList} formDetails={formDetails}/>}
                 </div>
 
 

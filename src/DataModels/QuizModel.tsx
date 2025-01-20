@@ -10,8 +10,9 @@ interface QuizInterface {
 class Quiz implements QuizInterface{
     id?: number
     name: string
+    userID?: number
     questionList: Array<any>
-
+    
     constructor({name, questionList}: QuizInterface){ 
         this.name = name
         this.questionList = questionList

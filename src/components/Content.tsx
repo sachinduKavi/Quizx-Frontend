@@ -10,10 +10,21 @@ import {Input, Button} from 'antd'
 import '../style/content.css'
 
 export default function Content(props: any) {
-  const globalState = useSelector((state: RootState) => state.global)
+  const questionList = useSelector((state: RootState) => state.questionList)
+  const global = useSelector((state: RootState) => state.global)
+  const user = useSelector((state: RootState) => state.user)
 
   const quizSubmission = async() => {
-    console.log('Form submission ', globalState)
+    const quizValues = {
+      name: props.formDetails.name,
+      userID: user.id,
+      questionList: questionList
+    }
+    // console.log('form details', props.formDetails)
+    // console.log('Form submission ', questionList)
+    // console.log('Form submission ', global)
+
+    console.log(quizValues)
   }
 
 
