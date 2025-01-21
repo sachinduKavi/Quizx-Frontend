@@ -4,6 +4,7 @@ import MultiChoiceInterface from '../DataModels/MultiChoiceModel'
 
 interface Choice {
     answer: string
+    correct: boolean,
     selected: boolean
 }
 

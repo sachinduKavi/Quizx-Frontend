@@ -4,8 +4,9 @@ import SingleForm from './SingleForm'
 import {PlusOutlined, CloudFilled, DeleteFilled} from '@ant-design/icons'
 import { useSelector } from 'react-redux'
 import { RootState } from '../redux/store'
-
+import Quiz from '../DataModels/QuizModel'
 import {Input, Button} from 'antd'
+import toast from 'react-hot-toast'
 
 import '../style/content.css'
 
@@ -14,17 +15,18 @@ export default function Content(props: any) {
   const global = useSelector((state: RootState) => state.global)
   const user = useSelector((state: RootState) => state.user)
 
-  const quizSubmission = async() => {
+  const quizSubmission = async () => {
     const quizValues = {
       name: props.formDetails.name,
       userID: user.id,
       questionList: questionList
     }
-    // console.log('form details', props.formDetails)
-    // console.log('Form submission ', questionList)
-    // console.log('Form submission ', global)
-
-    console.log(quizValues)
+    
+    if(await Quiz.createQuiz(quizValues)) {
+        toast.success('Quiz created successfully')
+        
+    }
+    console.log(JSON.stringify(quizValues))
   }
 
 

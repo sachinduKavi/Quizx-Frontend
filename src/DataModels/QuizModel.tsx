@@ -1,3 +1,4 @@
+import { createQuizQuery } from "../services/quizQuery"
 
 interface QuizInterface {
     id?: number
@@ -16,6 +17,12 @@ class Quiz implements QuizInterface{
     constructor({name, questionList}: QuizInterface){ 
         this.name = name
         this.questionList = questionList
+    }
+
+
+    static async createQuiz(data: any): Promise<boolean> {
+        const response = await createQuizQuery(data)
+        return response.status === 201 && response.data.proceed
     }
 }
 

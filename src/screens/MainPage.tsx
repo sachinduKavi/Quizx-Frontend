@@ -71,7 +71,7 @@ export default function MainPage() {
 
 
                 <div className="editor-panel">
-                    {activePanel === 'Content' && <Content newField={setChoiceView} formList={formList} formDetails={formDetails}/>}
+                    {activePanel === 'Content' && <Content newField={setChoiceView} formList={formList} formDetails={formDetails} setFormDetails={setFormDetails}/>}
                 </div>
 
 
