@@ -18,7 +18,7 @@ const currentQuestionSlice = createSlice({
 
         addQuestion: (state, action: PayloadAction<QuestionInterface>) => {
             // Append question to the question list
-            state.questionList = {...state.questionList, ...action.payload}
+            state.questionList = [...state.questionList, action.payload]
             return state;
         },
 

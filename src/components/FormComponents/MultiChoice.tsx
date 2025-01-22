@@ -13,14 +13,13 @@ import '../../style/multi-choice.css'
 
 export default function MultiChoice(props: any) {
     const globalValue = useSelector((state: RootState) => state.global);
+    const currentQuestion = useSelector((state: RootState) => state.currentQuestion)
     const dispatch: AppDispatch = useDispatch()
     
     const formList = props.formList.formList
     const setFormList = props.formList.setFormList
     
 
-
-    const imageRef = useRef<HTMLInputElement | null>(null)
     // Update global value
     const updateGlobal = (name: any, value: any) => {
         dispatch(setValue({[name]: value}))
@@ -29,7 +28,7 @@ export default function MultiChoice(props: any) {
     
     // Form is finalize to submit and save the instant
     const saveFinalize = () => {
-        const updateList = [...formList, globalValue]
+        const updateList = [...currentQuestion.questionList, globalValue]
         setFormList(updateList)
         props.resetPanel()
         dispatch(resetValues())
@@ -126,13 +125,7 @@ export default function MultiChoice(props: any) {
             <Button className='delete-button'>Delete</Button>
         </div>
 
-        <input type="file" accept='image/*' style={{visibility: 'hidden'}} ref={imageRef} onChange={(e) =>  {
-            // Get the file selected 
-            const selectedFile: File | null = e.target.files ? e.target.files[0] : null
-            if(selectedFile !== null)
-                updateGlobal('imageFile', selectedFile)
-            
-        }}/>
+       
 
     </div>
   )
