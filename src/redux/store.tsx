@@ -2,7 +2,8 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import {persistReducer, persistStore} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import globalSlice from './global-slice'
-import questionListSlice from './question-list'
+import questionListSlice from './question'
+import currentQuestionSlice from './currentQuestion-slice'
 
 import userSlice from './user-slice'
 import loadingSlice from './loading-slice'
@@ -17,7 +18,8 @@ const rootReducer = combineReducers({
     user: userSlice,
     loading: loadingSlice,
     global: globalSlice,
-    questionList: questionListSlice
+    questionList: questionListSlice,
+    currentQuestion: currentQuestionSlice
 })
 
 

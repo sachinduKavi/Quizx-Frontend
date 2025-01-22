@@ -4,7 +4,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 const initialState: Array<any> = []
 
 const questionListSlice = createSlice({
-    name: 'question-list',
+    name: 'question',
     initialState,
     reducers: {
         setQuestionList: (state, action: PayloadAction<Array<any>>) => {

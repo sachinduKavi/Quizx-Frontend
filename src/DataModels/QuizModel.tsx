@@ -1,18 +1,34 @@
 import { createQuizQuery } from "../services/quizQuery"
 
 interface QuizInterface {
-    id?: number
-    name: string
+    id?: number | null
+    name?: string
     questionList: Array<any>
 
+}
+
+interface ChoiceInterface {
+    answer: string
+    selected?: boolean,
+    state?: boolean
+}
+
+interface QuestionInterface {
+    title: string
+    description: string
+    type: string
+    choices: Array<ChoiceInterface>
+    multiple: boolean
+    required: boolean
 }
 
 
 class Quiz implements QuizInterface{
     id?: number
-    name: string
+    name?: string
     userID?: number
-    questionList: Array<any>
+    questionList: Array<QuestionInterface>
+
     
     constructor({name, questionList}: QuizInterface){ 
         this.name = name
@@ -28,4 +44,4 @@ class Quiz implements QuizInterface{
 
 
 export default Quiz
-export {type QuizInterface}
+export {type QuizInterface, type QuestionInterface}

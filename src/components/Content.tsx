@@ -24,7 +24,6 @@ export default function Content(props: any) {
     
     if(await Quiz.createQuiz(quizValues)) {
         toast.success('Quiz created successfully')
-        
     }
     console.log(JSON.stringify(quizValues))
   }
