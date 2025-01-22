@@ -11,6 +11,7 @@ import toast from 'react-hot-toast'
 import '../style/content.css'
 
 export default function Content(props: any) {
+  const currentQuestion = useSelector((state: RootState) => state.currentQuestion)
   const questionList = useSelector((state: RootState) => state.questionList)
   const global = useSelector((state: RootState) => state.global)
   const user = useSelector((state: RootState) => state.user)
@@ -42,7 +43,7 @@ export default function Content(props: any) {
             <SingleForm type='welcome' title='Welcome screen'/>
 
             {
-              props.formList.map((element: Object, index: number) => {
+              currentQuestion.questionList.map((element: Object, index: number) => {
                 return (<SingleForm key={index} data={element}/>)
               })
             }

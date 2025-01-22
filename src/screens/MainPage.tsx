@@ -6,8 +6,9 @@ import Welcome from '../components/display/Welcome'
 import { useNavigate } from 'react-router-dom'
 import Input from 'antd/es/input/Input'
 import { useSelector, useDispatch } from 'react-redux'
-import { setQuestionList } from '../redux/question'
+import { QuestionInterface } from '../DataModels/QuizModel'
 import { RootState, AppDispatch } from '../redux/store'
+import { newQuestionList } from '../redux/currentQuestion-slice'
 import Quiz from '../DataModels/QuizModel'
 import { QuizInterface } from '../DataModels/QuizModel'
 
@@ -19,6 +20,7 @@ export default function MainPage() {
     const navigate = useNavigate()
     const dispatch: AppDispatch = useDispatch()
     const formList = useSelector((state: RootState) => state.questionList)
+    const currentQuestion = useSelector((state: RootState) => state.currentQuestion)
 
     const [editable, setEditable] = useState<Boolean>(false)
     const [activePanel, setPanel] = useState<String>("Content")
@@ -28,12 +30,13 @@ export default function MainPage() {
     const [currentPanel, setCurrentPanel] = useState<JSX.Element>(<div></div>) // Currently active panel
     const [formDetails, setFormDetails] = useState<any>({
         name: '',
-
     })
 
     // Update global question list
-    const setFormList = (newList: Array<Object>) => {
-        dispatch(setQuestionList(newList))
+    const setFormList = (newList: Array<QuestionInterface>) => {
+        console.log(newList)
+        dispatch(newQuestionList(newList))
+        // dispatch(setQuestionList(newList))
     }
 
     useEffect(() => {

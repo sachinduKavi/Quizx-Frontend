@@ -20,11 +20,20 @@ const currentQuestionSlice = createSlice({
             // Append question to the question list
             state.questionList = {...state.questionList, ...action.payload}
             return state;
+        },
+
+        newQuestionList: (state, action: PayloadAction<Array<QuestionInterface>>) => {
+            state.questionList = action.payload
+            return state
+        },
+
+        eraseQuestion: (state) => {
+            return initialState
         }
     }
 })
 
 
 
-export const {setQuiz, addQuestion} = currentQuestionSlice.actions
+export const {setQuiz, addQuestion, newQuestionList, eraseQuestion} = currentQuestionSlice.actions
 export default currentQuestionSlice.reducer
