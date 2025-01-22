@@ -5,6 +5,7 @@ import CrossIcon from '../../assets/icons/cross.svg'
 import { setValue, setChoice, resetValues } from '../../redux/global-slice'
 import { RootState, AppDispatch } from '../../redux/store'
 import {useSelector, useDispatch} from 'react-redux'
+import { ChoiceInterface } from '../../DataModels/QuizModel'
 
 
 import '../../style/multi-choice.css'
@@ -16,10 +17,7 @@ export default function MultiChoice(props: any) {
     
     const formList = props.formList.formList
     const setFormList = props.formList.setFormList
-    interface Choice {
-        answer: string
-        selected: boolean
-    }
+    
 
 
     const imageRef = useRef<HTMLInputElement | null>(null)
@@ -72,7 +70,7 @@ export default function MultiChoice(props: any) {
             <p>choice {globalValue.choices.length}</p>
 
             {
-                globalValue.choices.map((element: Choice, index: number) => {
+                globalValue.choices.map((element: ChoiceInterface, index: number) => {
                     return (
                         <div className="row" key={index}>
                             <Input value={element.answer} onChange={(e) => {

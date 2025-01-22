@@ -44,4 +44,4 @@ class Quiz implements QuizInterface{
 
 
 export default Quiz
-export {type QuizInterface, type QuestionInterface}
+export {type QuizInterface, type QuestionInterface, type ChoiceInterface}

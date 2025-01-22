@@ -27,6 +27,10 @@ const currentQuestionSlice = createSlice({
             return state
         },
 
+        setQuizName: (state, action: PayloadAction<string>) => {
+            state.name = action.payload
+        },
+
         eraseQuestion: (state) => {
             return initialState
         }
@@ -35,5 +39,5 @@ const currentQuestionSlice = createSlice({
 
 
 
-export const {setQuiz, addQuestion, newQuestionList, eraseQuestion} = currentQuestionSlice.actions
+export const {setQuiz, addQuestion, newQuestionList, eraseQuestion, setQuizName} = currentQuestionSlice.actions
 export default currentQuestionSlice.reducer

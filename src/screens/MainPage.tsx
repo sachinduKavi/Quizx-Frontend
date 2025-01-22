@@ -9,8 +9,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { QuestionInterface } from '../DataModels/QuizModel'
 import { RootState, AppDispatch } from '../redux/store'
 import { newQuestionList } from '../redux/currentQuestion-slice'
-import Quiz from '../DataModels/QuizModel'
-import { QuizInterface } from '../DataModels/QuizModel'
+import { setQuizName } from '../redux/currentQuestion-slice'
 
 import Content from '../components/Content'
 
@@ -19,6 +18,8 @@ import '../style/main-page.css'
 export default function MainPage() {
     const navigate = useNavigate()
     const dispatch: AppDispatch = useDispatch()
+
+
     const formList = useSelector((state: RootState) => state.questionList)
     const currentQuestion = useSelector((state: RootState) => state.currentQuestion)
 
@@ -40,7 +41,7 @@ export default function MainPage() {
     }
 
     useEffect(() => {
-        console.log('form list', formList)
+        console.log('question list', currentQuestion)
     })
 
   return (
@@ -56,8 +57,8 @@ export default function MainPage() {
 
                     <p className='nav previous' onClick={() => {navigate('/dashboard')}}>Dashboard &#10095;</p>
                    <Input
-                    value={formDetails.name}
-                    onChange={((e) => setFormDetails({...formDetails, name: e.target.value}))}
+                    value={currentQuestion.name}
+                    onChange={((e) => dispatch(setQuizName(e.target.value)))}
                     placeholder='Form name'
                     style={{fontSize: '12px', padding: '0 2px', flex: '1 1 0', width: '100%', borderRadius: 0}}/>
                     <div className="last-element">
