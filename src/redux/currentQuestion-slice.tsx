@@ -31,13 +31,23 @@ const currentQuestionSlice = createSlice({
             state.name = action.payload
         },
 
+        setQuizID: (state, action: PayloadAction<number>) => {
+            state.id = action.payload
+            return state
+        },
+
         eraseQuestion: (state) => {
             return initialState
+        },
+
+        setUserID: (state, action: PayloadAction<number | undefined>) => {
+            if(action.payload === undefined) return;
+            state.userID = action.payload
         }
     }
 })
 
 
 
-export const {setQuiz, addQuestion, newQuestionList, eraseQuestion, setQuizName} = currentQuestionSlice.actions
+export const {setQuiz, addQuestion, newQuestionList, eraseQuestion, setQuizName, setUserID, setQuizID} = currentQuestionSlice.actions
 export default currentQuestionSlice.reducer

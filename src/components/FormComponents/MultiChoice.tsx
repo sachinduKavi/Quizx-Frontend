@@ -15,8 +15,6 @@ export default function MultiChoice(props: any) {
     const globalValue = useSelector((state: RootState) => state.global);
     const currentQuestion = useSelector((state: RootState) => state.currentQuestion)
     const dispatch: AppDispatch = useDispatch()
-    
-    const formList = props.formList.formList
     const setFormList = props.formList.setFormList
     
 

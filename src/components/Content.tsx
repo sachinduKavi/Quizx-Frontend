@@ -2,31 +2,29 @@ import React from 'react'
 import ContentIcon from '../assets/icons/content.svg'
 import SingleForm from './SingleForm'
 import {PlusOutlined, CloudFilled, DeleteFilled} from '@ant-design/icons'
-import { useSelector } from 'react-redux'
-import { RootState } from '../redux/store'
+import { useSelector, useDispatch } from 'react-redux'
+import { AppDispatch, RootState } from '../redux/store'
 import Quiz from '../DataModels/QuizModel'
 import {Input, Button} from 'antd'
+import { setUserID, setQuizID } from '../redux/currentQuestion-slice'
 import toast from 'react-hot-toast'
 
 import '../style/content.css'
 
 export default function Content(props: any) {
+  const dispatch: AppDispatch = useDispatch()
   const currentQuestion = useSelector((state: RootState) => state.currentQuestion)
-  const questionList = useSelector((state: RootState) => state.questionList)
-  const global = useSelector((state: RootState) => state.global)
   const user = useSelector((state: RootState) => state.user)
 
   const quizSubmission = async () => {
-    const quizValues = {
-      name: props.formDetails.name,
-      userID: user.id,
-      questionList: questionList
-    }
-    
-    if(await Quiz.createQuiz(quizValues)) {
+    dispatch(setUserID(user.id))
+    const res = await Quiz.createQuiz(currentQuestion)
+    if(res) {
+        if(typeof res === 'number')
+        dispatch(setQuizID(res))
         toast.success('Quiz created successfully')
     }
-    console.log(JSON.stringify(quizValues))
+    console.log(JSON.stringify(currentQuestion))
   }
 
 
