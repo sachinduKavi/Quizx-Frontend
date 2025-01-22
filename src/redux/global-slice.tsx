@@ -26,6 +26,11 @@ const globalSlice = createSlice({
             state.choices[index] = { ...choice, selected: choice.selected ?? false }
         },
 
+
+        changeSelection: (state, action: PayloadAction<boolean>) => {
+            
+        },
+
         resetValues: () => {
             return initialState
         }

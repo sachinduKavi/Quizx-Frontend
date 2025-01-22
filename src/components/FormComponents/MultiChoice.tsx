@@ -1,6 +1,6 @@
 import React, {useState, useRef} from 'react'
 import {SettingOutlined, DeleteFilled, PlusOutlined, UploadOutlined, AlignLeftOutlined} from '@ant-design/icons'
-import { Button, Input, Switch } from 'antd'
+import { Button, Input, Switch, Checkbox } from 'antd'
 import CrossIcon from '../../assets/icons/cross.svg'
 import { setValue, setChoice, resetValues } from '../../redux/global-slice'
 import { RootState, AppDispatch } from '../../redux/store'
@@ -69,13 +69,21 @@ export default function MultiChoice(props: any) {
             {
                 globalValue.choices.map((element: ChoiceInterface, index: number) => {
                     return (
-                        <div className="row" key={index}>
+                        <div className="row flex items-center justify-center" key={index}>
                             <Input value={element.answer} onChange={(e) => {
                                 let updateChoice = {
                                     ...element, answer: e.target.value
                                 }
                                 dispatch(setChoice({index, choice: updateChoice})) // Updating global choice array
                             }}/> 
+                            
+                            <Checkbox onChange={(e) => {
+                                let updateChoice = {
+                                    ...element, selected: e.target.checked
+                                }
+                                dispatch(setChoice({index, choice: updateChoice}))
+                            }}/>
+
                             <Button className='square-btn' onClick={() => {
                                 let updateChoice = [...globalValue.choices]
                                 updateChoice.splice(index, 1)
@@ -94,7 +102,6 @@ export default function MultiChoice(props: any) {
                 }]
             
                 updateGlobal('choices', choiceUpdate)
-
                 }}><PlusOutlined style={{color: 'white'}}/></Button>
 
 

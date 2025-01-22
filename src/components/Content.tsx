@@ -5,7 +5,7 @@ import {PlusOutlined, CloudFilled, DeleteFilled} from '@ant-design/icons'
 import { useSelector, useDispatch } from 'react-redux'
 import { AppDispatch, RootState } from '../redux/store'
 import Quiz from '../DataModels/QuizModel'
-import {Input, Button} from 'antd'
+import {Button} from 'antd'
 import { setUserID, setQuizID } from '../redux/currentQuestion-slice'
 import toast from 'react-hot-toast'
 
