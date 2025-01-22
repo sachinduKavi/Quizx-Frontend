@@ -18,11 +18,13 @@ export default function Content(props: any) {
 
   const quizSubmission = async () => {
     dispatch(setUserID(user.id))
-    const res = await Quiz.createQuiz(currentQuestion)
+    let res;
+    if(typeof currentQuestion.id === null) res = await Quiz.createQuiz(currentQuestion);
+    else res = await Quiz.updateQuiz(currentQuestion);
     if(res) {
-        if(typeof res === 'number')
-        dispatch(setQuizID(res))
-        toast.success('Quiz created successfully')
+        if(typeof res === 'number') 
+        dispatch(setQuizID(res));
+        toast.success(res.message)
     }
     console.log(JSON.stringify(currentQuestion))
   }

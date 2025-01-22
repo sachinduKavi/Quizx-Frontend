@@ -1,4 +1,4 @@
-import { createQuizQuery } from "../services/quizQuery"
+import { createQuizQuery, updateQuizQuery } from "../services/quizQuery"
 
 interface QuizInterface {
     id?: number | null
@@ -35,14 +35,23 @@ class Quiz implements QuizInterface{
     }
      
 
-    static async createQuiz(data: any): Promise<boolean | number> {
+    static async createQuiz(data: any): Promise<any> {
         const response = await createQuizQuery(data)
 
         if(response.status === 201 && response.data.proceed) {
-            return response.data.quiz_id
+            return {quiz_id: response.data.quiz_id, message: response.data.message}
         }
 
         return false;
+    }
+
+
+    static async updateQuiz(data: any): Promise<any> {
+        const response = await updateQuizQuery(data)
+
+        if(response.status === 200 && response.data.proceed) {
+            return {quiz_id: data.id, message: response.data.message}
+        }
     }
 }
 
