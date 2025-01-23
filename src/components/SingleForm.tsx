@@ -12,7 +12,7 @@ export default function SingleForm(props: any) {
 
   if(props.type !== undefined) {
     return (
-      <div className='single-form'>
+      <div className='single-form' onClick={props.onClick}>
         <StarOutlined/>
         <div className="content">
             {props.title}
@@ -22,7 +22,7 @@ export default function SingleForm(props: any) {
   }
 
   return (
-    <div className='single-form'>
+    <div className='single-form' onClick={props.onClick}>
         <img src={DotsIcons} alt="" className="move" />
         <div className="content">
             {data.title}

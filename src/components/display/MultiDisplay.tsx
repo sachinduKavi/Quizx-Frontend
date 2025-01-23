@@ -18,7 +18,7 @@ function MultiDisplay() {
     }
 
   return (
-    <div className='multi-choice-display' style={{flexDirection: globalValue.placement ? 'row': 'row-reverse'}}>
+    <div className='multi-choice-display'>
         <div className="column display-column">
             <Input placeholder='Add question title' value={globalValue.title} 
             className='display-title'

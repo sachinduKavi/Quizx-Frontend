@@ -51,7 +51,7 @@ export default function MainPage() {
 
             {
             !editable ?    
-            <div className="panel">
+            <div className="panel min-w-[600px] bg-red-500">
                 <div className="nav-bar">
                     <img src={CubeIcon} alt="cube icon" />
 
@@ -75,13 +75,17 @@ export default function MainPage() {
 
 
                 <div className="editor-panel">
-                    {activePanel === 'Content' && <Content newField={setChoiceView} formList={formList} formDetails={formDetails} setFormDetails={setFormDetails}/>}
+                    {activePanel === 'Content' && <Content newField={setChoiceView} 
+                    formList={{formList: formList, setFormList: setFormList}}
+                    setEditable={setEditable} 
+                    setCurrentPanel={setCurrentPanel} setActiveDisplay={setActiveDisplay}
+                    formDetails={formDetails} setFormDetails={setFormDetails}/>}
                 </div>
 
 
 
             </div>
-            : <div className="panel">
+            : <div className="panel min-w-[300px]">
                 {currentPanel}
             </div>
         }

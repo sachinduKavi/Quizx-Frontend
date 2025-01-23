@@ -1,16 +1,15 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 import MultiChoiceInterface from '../DataModels/MultiChoiceModel'
 import { ChoiceInterface } from '../DataModels/QuizModel'
+import { QuestionInterface } from '../DataModels/QuizModel'
 
-const initialState:MultiChoiceInterface = {
+const initialState:QuestionInterface = {
         title: '',
+        type: '',
         description: '',
         choices: [],
         multiple: false,
         required: false,
-        imageFile: null,
-        placement: false
-   
 }
 
 const globalSlice = createSlice({
@@ -26,6 +25,10 @@ const globalSlice = createSlice({
             state.choices[index] = { ...choice, selected: choice.selected ?? false }
         },
 
+        setQuestion: (state, action: PayloadAction<QuestionInterface>) => {
+            return action.payload
+        },
+
 
         changeSelection: (state, action: PayloadAction<boolean>) => {
             
@@ -37,5 +40,5 @@ const globalSlice = createSlice({
     }
 })
 
-export const { setValue, setChoice, resetValues } = globalSlice.actions
+export const { setValue, setChoice, resetValues, setQuestion } = globalSlice.actions
 export default globalSlice.reducer

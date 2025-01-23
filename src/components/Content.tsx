@@ -8,6 +8,10 @@ import Quiz from '../DataModels/QuizModel'
 import {Button} from 'antd'
 import { setUserID, setQuizID } from '../redux/currentQuestion-slice'
 import toast from 'react-hot-toast'
+import { setQuestion } from '../redux/global-slice'
+import { QuestionInterface } from '../DataModels/QuizModel'
+import MultiChoice from './FormComponents/MultiChoice'
+import MultiDisplay from './display/MultiDisplay'
 
 import '../style/content.css'
 
@@ -30,6 +34,19 @@ export default function Content(props: any) {
   }
 
 
+
+  const   resetPanel = () => {
+    props.setEditable(false)
+  }
+
+  const selectQuestion = (question: QuestionInterface) => {
+    dispatch(setQuestion(question))
+    props.setEditable(true)
+    props.setCurrentPanel(<MultiChoice resetPanel={resetPanel} formList={props.formList}/>)
+    props.setActiveDisplay(<MultiDisplay/>)
+  }
+
+
   return (
     <div className='content-border'>
         <div className="main-content">
@@ -40,11 +57,14 @@ export default function Content(props: any) {
 
             <p className="steps-description">The steps users will take to complete the form</p>
 
-            <SingleForm type='welcome' title='Welcome screen'/>
+            {/* <SingleForm type='welcome' title='Welcome screen'/> */}
 
             {
-              currentQuestion.questionList.map((element: Object, index: number) => {
-                return (<SingleForm key={index} data={element}/>)
+              currentQuestion.questionList.map((element: QuestionInterface, index: number) => {
+                return (<SingleForm 
+                  formList={props.fromList}
+                  onClick={() => {selectQuestion(element)}}
+                  key={index} data={element}/>)
               })
             }
 
@@ -53,7 +73,7 @@ export default function Content(props: any) {
 
             <hr />
 
-            <SingleForm type='end' title='End screen'/>
+            {/* <SingleForm type='end' title='End screen'/> */}
         </div>
 
         <div className="content-footer">
