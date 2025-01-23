@@ -1,10 +1,11 @@
-import Reach, { useState } from 'react'
+// import Reach, { useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import MainPage from './screens/MainPage'
 import Home from './screens/Home'
-import About from './screens/About'
+// import About from './screens/About'
 import Dashboard from './screens/Dashboard'
 import Addquiz from './screens/Addquiz'
+import Question from './screens/questions'
 
 
 
@@ -13,7 +14,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/questions" element={<Question />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/addquiz" element={<Addquiz />} />
         <Route path='/editor' element={<MainPage/>}/>

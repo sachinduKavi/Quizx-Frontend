@@ -1,0 +1,149 @@
+.container {
+    min-height: 100vh;
+    background-color: rgb(239, 238, 238);
+    padding: 20px 4px;
+  }
+  
+  .quiz-wrapper {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding-top: 80px;
+  }
+  
+  .quiz-content {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    padding: 32px;
+  }
+  
+  .question-navigation {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+  
+  .nav-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: #ffffff;
+    border: 2px solid #6366f1;
+    color: #6366f1;
+    cursor: pointer;
+  }
+  
+  .nav-button.active {
+    background-color: #6366f1;
+    color: #ffffff;
+  }
+  
+  .nav-button:hover {
+    background-color: #eef2ff;
+  }
+  
+  .question-section {
+    max-width: auto;
+    justify-content: left;
+    text-align: left;
+  }
+  
+  .question-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 24px;
+  }
+  
+  .answers-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .answer-label {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-radius: 8px;
+    border: 2px solid #e5e7eb;
+    cursor: pointer;
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .answer-label.selected {
+    border-color: #6366f1;
+    background-color: #eef2ff;
+  }
+  
+  .answer-label:hover {
+    border-color: #c7d2fe;
+    background-color: #f3f4f6;
+  }
+  
+  .answer-checkbox {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    margin-right: 12px;
+    accent-color: white;
+    background-color: white;
+    border: 2px solid #e5e7eb;
+  }
+  
+  .answer-checkbox:checked {
+    border-color: #6366f1;
+  }
+  
+  .answer-text {
+    color: #000000;
+    flex-grow: 1;
+  }
+  
+  .navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 32px;
+  }
+  
+  .nav-button.previous,
+  .nav-button.next {
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .nav-button.previous {
+    background-color: #ffffff;
+    border: 2px solid #6366f1;
+    color: #6366f1;
+    width: 160px;
+  }
+  
+  .nav-button.previous:hover {
+    background-color: #eef2ff;
+  }
+  
+  .nav-button.next {
+    background-color: #6366f1;
+    color: #ffffff;
+    width: 160px;
+  }
+  
+  .nav-button.next:hover {
+    background-color: #4338ca;
+  }
+  
+  .icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    color: rgb(0, 0, 0);
+  }
+  
