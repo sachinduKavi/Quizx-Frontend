@@ -35,7 +35,7 @@ export default function Content(props: any) {
 
 
 
-  const   resetPanel = () => {
+  const resetPanel = () => {
     props.setEditable(false)
   }
 
