@@ -60,6 +60,7 @@ export default function AddPop(props: any) {
             </div>
         
             <div className="content-grid">
+                
                 <FieldChoice text='Multiple Choice' icon={<CheckOutlined/>} onClick={() => addField('Multiple')}/>
                 <FieldChoice text='Short Text' icon={<EditOutlined/>} onClick={() => addField('Multiple')}/>
                 

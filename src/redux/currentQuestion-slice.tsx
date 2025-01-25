@@ -43,11 +43,17 @@ const currentQuestionSlice = createSlice({
         setUserID: (state, action: PayloadAction<number | undefined>) => {
             if(action.payload === undefined) return;
             state.userID = action.payload
+        },
+
+        resetQuestion: (state) => {
+            return initialState
         }
     }
 })
 
 
 
-export const {setQuiz, addQuestion, newQuestionList, eraseQuestion, setQuizName, setUserID, setQuizID} = currentQuestionSlice.actions
+export const {setQuiz, addQuestion, newQuestionList, 
+    resetQuestion,
+    eraseQuestion, setQuizName, setUserID, setQuizID} = currentQuestionSlice.actions
 export default currentQuestionSlice.reducer

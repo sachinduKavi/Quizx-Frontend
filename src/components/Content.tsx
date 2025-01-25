@@ -12,6 +12,7 @@ import { setQuestion } from '../redux/global-slice'
 import { QuestionInterface } from '../DataModels/QuizModel'
 import MultiChoice from './FormComponents/MultiChoice'
 import MultiDisplay from './display/MultiDisplay'
+import { resetValues } from '../redux/global-slice'
 
 import '../style/content.css'
 
@@ -69,9 +70,12 @@ export default function Content(props: any) {
             }
 
 
-            <Button icon={<PlusOutlined/>} className='add-field-btn' onClick={() => props.newField(true)}>Add Field</Button>
+            <Button icon={<PlusOutlined/>} className='add-field-btn' onClick={() => {
+              dispatch(resetValues()) // Reset the global values
+              props.newField(true)
+            }}>Add Field</Button>
 
-            <hr />
+            <hr /> 
 
             {/* <SingleForm type='end' title='End screen'/> */}
         </div>

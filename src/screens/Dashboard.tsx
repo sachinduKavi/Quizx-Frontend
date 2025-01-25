@@ -2,11 +2,13 @@ import { useNavigate } from 'react-router-dom';
 import './Dashboard.css';
 import Navbar from '../components/Navbar/Navbar';
 import { RootState } from '../redux/store';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { resetQuestion } from '../redux/currentQuestion-slice';
 import Footer from '../components/Footer/Footer';
 
 const Dashboard = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch()
   const globalUser = useSelector((state: RootState) => state.user);
 
   const quizzes = [
@@ -23,7 +25,11 @@ const Dashboard = () => {
         <div className="mb-4 text-center" id="new_quiz">
           <button
             className="btn btn-dark fw-bold"
-            onClick={() => navigate('/editor')}
+            onClick={() => {
+              // Open new question format
+              dispatch(resetQuestion())
+              navigate('/editor')
+            }}
           >
             Add New
           </button>
