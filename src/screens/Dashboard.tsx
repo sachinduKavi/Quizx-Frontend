@@ -24,7 +24,7 @@ const Dashboard = () => {
        
         <div className="mb-4 text-center" id="new_quiz">
           <button
-            className="btn btn-dark fw-bold"
+            className="btn btn-dark fw-bold  "
             onClick={() => {
               // Open new question format
               dispatch(resetQuestion())
