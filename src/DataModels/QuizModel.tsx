@@ -41,7 +41,7 @@ class Quiz implements QuizInterface{
         const response = await createQuizQuery(data)
 
         if(response.status === 201 && response.data.proceed) {
-            return {quiz_id: response.data.quiz_id, message: response.data.message, data: response.data.quiz_data}
+            return {quiz_id: response.data.quiz_id, message: response.data.message, values: response.data.quiz_data}
         }
 
         return false;

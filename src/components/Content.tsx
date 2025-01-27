@@ -4,7 +4,7 @@ import SingleForm from './SingleForm'
 import {PlusOutlined, CloudFilled, DeleteFilled} from '@ant-design/icons'
 import { useSelector, useDispatch } from 'react-redux'
 import { AppDispatch, RootState } from '../redux/store'
-import Quiz from '../DataModels/QuizModel'
+import Quiz, { QuizInterface } from '../DataModels/QuizModel'
 import {Button} from 'antd'
 import { setUserID, setQuizID, setQuiz } from '../redux/currentQuestion-slice'
 import toast from 'react-hot-toast'
@@ -26,8 +26,14 @@ export default function Content(props: any) {
     let res:any = await Quiz.createQuiz(currentQuestion);
     // else res = await Quiz.updateQuiz(currentQuestion);
     if(res) {
-        if(typeof res === 'number') 
-        dispatch(setQuiz(res.data));
+        const quiz_format: QuizInterface = {
+          name: res.values.quiz_name,
+          id: res.values.quiz_id,
+          shareLink: res.values.access_link,
+          questionList: currentQuestion.questionList
+        }
+
+        dispatch(setQuiz(quiz_format));
         toast.success(res.message)
     }
     console.log('Response', res)
