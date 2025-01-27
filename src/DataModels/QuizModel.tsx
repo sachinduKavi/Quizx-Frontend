@@ -5,6 +5,7 @@ interface QuizInterface {
     name?: string
     questionList: Array<any>
     userID?: null| number
+    shareLink?: string
 }
 
 interface ChoiceInterface {
@@ -28,6 +29,7 @@ class Quiz implements QuizInterface{
     name?: string
     userID?: number | null
     questionList: Array<QuestionInterface>
+    shareLink: string = ''
     
     constructor({name, questionList}: QuizInterface){ 
         this.name = name

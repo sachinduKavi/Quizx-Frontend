@@ -28,7 +28,6 @@ export default function SingleForm(props: any) {
             {data.title}
         </div>
         <img src={CrossIcon} alt="" className="cross" />
-
     </div>
   )
 }

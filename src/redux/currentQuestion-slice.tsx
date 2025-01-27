@@ -4,7 +4,8 @@ import { QuizInterface, QuestionInterface } from "../DataModels/QuizModel";
 const initialState: QuizInterface = {
     id: null,
     name: '',
-    questionList: []
+    questionList: [],
+    shareLink: 'Please publish the quiz to generate the link'
 }
 
 

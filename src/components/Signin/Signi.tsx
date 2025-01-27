@@ -18,7 +18,7 @@ const TabbedSearchForm = () => {
     // Handles tab switching
     const handleTabSwitch = (tab: 'signin' | 'signup') => {
         setActiveTab(tab);
-    };
+    }
 
     const [signInFormRef] = Form.useForm();
     const handleSignUp = async (values: object) => {
@@ -30,9 +30,9 @@ const TabbedSearchForm = () => {
             toast.error('Something went wrong, please try again.');
         }
         dispatch(setLoading(false)); // Turn off loading state
-    };
+    }
 
-    const [signInForm] = Form.useForm();
+    const [signInForm] = Form.useForm()
     const authorizeUser = async (values: object) => {
         dispatch(setLoading(true)); // Trigger loading state
         const response = await authorizeUserQuery(values);
@@ -44,7 +44,7 @@ const TabbedSearchForm = () => {
             toast.error('Invalid credentials.');
         }
         dispatch(setLoading(false)); // Turn off loading state
-    };
+    }
 
     return (
         <div className="container-fluid" id="background">
