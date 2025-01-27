@@ -10,6 +10,7 @@ import { QuestionInterface } from '../DataModels/QuizModel'
 import { RootState, AppDispatch } from '../redux/store'
 import { newQuestionList } from '../redux/currentQuestion-slice'
 import { setQuizName } from '../redux/currentQuestion-slice'
+import Share from '../components/Share'
 
 import Content from '../components/Content'
 
@@ -46,12 +47,12 @@ export default function MainPage() {
 
   return (
 
-    <div className='screen main-page'>
+    <div className='screen main-page bg-white'>
         <div className="row">
 
             {
             !editable ?    
-            <div className="panel min-w-[600px] bg-red-500">
+            <div className="panel min-w-[300px]">
                 <div className="nav-bar">
                     <img src={CubeIcon} alt="cube icon" />
 
@@ -80,6 +81,11 @@ export default function MainPage() {
                     setEditable={setEditable} 
                     setCurrentPanel={setCurrentPanel} setActiveDisplay={setActiveDisplay}
                     formDetails={formDetails} setFormDetails={setFormDetails}/>}
+
+
+                    {
+                        activePanel === 'Share' && <Share/>
+                    }
                 </div>
 
 

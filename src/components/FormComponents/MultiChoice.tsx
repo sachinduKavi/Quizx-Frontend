@@ -32,7 +32,7 @@ export default function MultiChoice(props: any) {
         dispatch(resetValues())
     }
     
-
+    
   return (
     <div className='multi-choice'>
         <div className="row setting-row" >
@@ -129,8 +129,6 @@ export default function MultiChoice(props: any) {
             <Button className='save-btn' onClick={saveFinalize}>Save</Button>
             <Button className='delete-button'>Delete</Button>
         </div>
-
-       
 
     </div>
   )
