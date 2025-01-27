@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { AppDispatch, RootState } from '../redux/store'
 import Quiz from '../DataModels/QuizModel'
 import {Button} from 'antd'
-import { setUserID, setQuizID } from '../redux/currentQuestion-slice'
+import { setUserID, setQuizID, setQuiz } from '../redux/currentQuestion-slice'
 import toast from 'react-hot-toast'
 import { setQuestion } from '../redux/global-slice'
 import { QuestionInterface } from '../DataModels/QuizModel'
@@ -23,14 +23,15 @@ export default function Content(props: any) {
 
   const quizSubmission = async () => {
     dispatch(setUserID(user.id))
-    let res = await Quiz.createQuiz(currentQuestion);
+    let res:any = await Quiz.createQuiz(currentQuestion);
     // else res = await Quiz.updateQuiz(currentQuestion);
     if(res) {
         if(typeof res === 'number') 
-        dispatch(setQuizID(res));
+        dispatch(setQuiz(res.data));
         toast.success(res.message)
     }
-    console.log(JSON.stringify(currentQuestion))
+    console.log('Response', res)
+    // console.log(JSON.stringify(currentQuestion))
   }
 
 
