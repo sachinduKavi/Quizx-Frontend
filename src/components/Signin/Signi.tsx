@@ -9,6 +9,7 @@ import { setLoading } from '../../redux/loading-slice';
 import { setUser } from '../../redux/user-slice';
 import User from '../../DataModels/User';
 import './Signin.css';
+import myImage from '../../assets/APThome.jpg';
 
 const TabbedSearchForm = () => {
     const [activeTab, setActiveTab] = useState<'signin' | 'signup'>('signin');
@@ -51,7 +52,7 @@ const TabbedSearchForm = () => {
             <div className="row align-items-center vh-100">
                 <div className="col-md-6 p-5">
                     <div className="form-container">
-                        <ul className="nav nav-tabs">
+                        <ul className="nav nav-tabs border-none">
                             <li className="nav-item">
                                 <button
                                     className={`nav-link ${activeTab === 'signin' ? 'active' : ''}`}
@@ -69,7 +70,7 @@ const TabbedSearchForm = () => {
                                 </button>
                             </li>
                         </ul>
-                        <div className="tab-content p-4 border border-top-0 shadow-sm">
+                        <div className="tab-content p-4  border-0  border-none shadow-none ">
                             {activeTab === 'signin' && (
                                 <Form
                                     form={signInForm}
@@ -89,6 +90,7 @@ const TabbedSearchForm = () => {
                                     <Form.Item
                                         label="Password"
                                         name="password"
+                                        
                                         rules={[
                                             { required: true, message: 'Please input your password!' }
                                         ]}
@@ -96,7 +98,7 @@ const TabbedSearchForm = () => {
                                         <Input.Password placeholder="password" />
                                     </Form.Item>
                                     <Form.Item>
-                                        <Button type="primary" htmlType="submit" className="w-100" danger>
+                                        <Button type="primary" htmlType="submit" className="w-109" danger>
                                             Sign In
                                         </Button>
                                     </Form.Item>
@@ -111,7 +113,7 @@ const TabbedSearchForm = () => {
                                 >
                                     <Form.Item
                                         label="Full Name"
-                                        name="name"
+                                        name="name"                                    
                                         rules={[
                                             { required: true, message: 'Please enter your full name' }
                                         ]}
@@ -149,6 +151,7 @@ const TabbedSearchForm = () => {
                                     <Form.Item
                                         label="Password"
                                         name="password"
+                                        
                                         rules={[
                                             { required: true, message: 'Please enter your password' },
                                             { min: 6, message: 'Password must be at least 6 characters' }
@@ -186,6 +189,14 @@ const TabbedSearchForm = () => {
                         </div>
                     </div>
                 </div>
+                <div className="col-md-4 p-5">
+                    <img 
+                        src={myImage} 
+                        alt="Description of the image" 
+                        className="home-image" 
+                    />
+                </div>
+
             </div>
         </div>
     );

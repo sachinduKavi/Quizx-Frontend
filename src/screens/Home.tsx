@@ -13,6 +13,7 @@ function Home() {
       
         <Navbar/>
         <Signin/>
+        
         <Footer/>
     </div>
   )
