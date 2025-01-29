@@ -62,9 +62,7 @@ export default function Content(props: any) {
             </div>
 
             <p className="steps-description">The steps users will take to complete the form</p>
-
             {/* <SingleForm type='welcome' title='Welcome screen'/> */}
-
             {
               currentQuestion.questionList.map((element: QuestionInterface, index: number) => {
                 return (<SingleForm 

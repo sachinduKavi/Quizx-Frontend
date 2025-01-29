@@ -40,6 +40,7 @@ class Quiz implements QuizInterface{
     static async createQuiz(data: any): Promise<any> {
         const response = await createQuizQuery(data)
 
+        console.log(response)
         if(response.status === 201 && response.data.proceed) {
             return {quiz_id: response.data.quiz_id, message: response.data.message, values: response.data.quiz_data}
         }
