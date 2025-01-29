@@ -10,8 +10,13 @@ const updateQuizQuery = async (data: any) => {
     return await domain.post('quiz/updateQuiz/', data, header)
 }
 
+const fetchQuizzesQuery = async () => {
+    return await domain.get('quiz/getQuizzes/')
+}
+
 
 export {
     createQuizQuery,
-    updateQuizQuery
+    updateQuizQuery,
+    fetchQuizzesQuery
 }
