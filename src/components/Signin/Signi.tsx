@@ -31,6 +31,7 @@ const TabbedSearchForm = () => {
             toast.error('Something went wrong, please try again.');
         }
         dispatch(setLoading(false)); // Turn off loading state
+        signInFormRef.resetFields()
     }
 
     const [signInForm] = Form.useForm()
