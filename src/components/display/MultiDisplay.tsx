@@ -3,7 +3,6 @@ import {Input} from 'antd'
 import {useDispatch, useSelector} from 'react-redux'
 import { setValue, setChoice } from '../../redux/global-slice'
 import { RootState, AppDispatch } from '../../redux/store'
-import MultiChoiceInterface from '../../DataModels/MultiChoiceModel'
 
 import '../../style/multi-choice-display.css'
 
@@ -21,7 +20,7 @@ function MultiDisplay() {
     <div className='multi-choice-display'>
         <div className="column display-column">
             <Input placeholder='Add question title' value={globalValue.title} 
-            className='display-title'
+            className='display-title font-bold !text-4xl'
             onChange={(e) => {updateGlobal('title', e.target.value)}}/>
 
             <Input placeholder='Add question description (optional)' 

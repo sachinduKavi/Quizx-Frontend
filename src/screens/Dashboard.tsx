@@ -6,7 +6,9 @@ import { RootState } from '../redux/store';
 import { useSelector, useDispatch } from 'react-redux';
 import { resetQuestion } from '../redux/currentQuestion-slice';
 import Footer from '../components/Footer/Footer';
-import { fetchQuizzesQuery } from '../services/quizQuery';
+import { fetchQuizzesQuery, getQuizQuery } from '../services/quizQuery';
+import { QuizInterface } from '../DataModels/QuizModel';
+import { setQuiz } from '../redux/currentQuestion-slice';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -24,8 +26,25 @@ const Dashboard = () => {
 
   useEffect(() => {
     getQuizzes()
-  })
+  }, [])
 
+
+  const accessQuiz = async(value: any) => {
+    const response = await getQuizQuery(value.quiz_id)
+    console.log(response.data)
+    if(response.status === 200) {
+      const data = response.data
+      const question: QuizInterface = {
+        id: data.quiz_id,
+        questionList: data.questions,
+        shareLink: data.access_link,
+        name: data.quiz_name
+      }
+      dispatch(setQuiz(question)) // Set global question
+      navigate('/editor')
+
+    }
+  }
 
 
   return (
@@ -56,7 +75,7 @@ const Dashboard = () => {
                   <h5 className="card-title">{quiz.quiz_name}</h5>
                   <button
                     className="btn btn-dark mt-3"
-                    onClick={() => navigate(quiz.access_link)}
+                    onClick={() => {accessQuiz(quiz)}}
                   >
                     Access Now
                   </button>

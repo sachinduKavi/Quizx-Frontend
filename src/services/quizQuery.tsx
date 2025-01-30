@@ -14,9 +14,14 @@ const fetchQuizzesQuery = async () => {
     return await domain.get('quiz/getQuizzes/')
 }
 
+const getQuizQuery = async (quizID: number) => {
+    return await domain.get(`quiz/getQuiz/?quiz_id=${quizID}`)
+}
+
 
 export {
     createQuizQuery,
     updateQuizQuery,
-    fetchQuizzesQuery
+    fetchQuizzesQuery,
+    getQuizQuery
 }
