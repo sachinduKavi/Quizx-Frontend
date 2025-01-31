@@ -11,6 +11,7 @@ import { RootState, AppDispatch } from '../redux/store'
 import { newQuestionList } from '../redux/currentQuestion-slice'
 import { setQuizName } from '../redux/currentQuestion-slice'
 import Share from '../components/Share'
+import Submission from '../components/Submission'
 
 import Content from '../components/Content'
 
@@ -85,6 +86,13 @@ export default function MainPage() {
 
                     {
                         activePanel === 'Share' && <Share/>
+                    }
+
+
+                    {   
+                        activePanel === 'Submissions' && <Submission
+                        setActiveDisplay={setActiveDisplay}
+                        />
                     }
                 </div>
 

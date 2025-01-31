@@ -15,7 +15,15 @@ const fetchQuizzesQuery = async () => {
 }
 
 const getQuizQuery = async (quizID: number) => {
-    return await domain.get(`quiz/getQuiz/?quiz_id=${quizID}`)
+    return await domain.get(`quiz/getQuiz/?quiz_id=${quizID}`, header)
+}
+
+const submitQuestionQuery = async (data: any) => {
+    return await domain.post('quiz/saveSubmission/', data, header)
+}
+
+const getQuizSubmissionsQuery = async (id: number) => {
+    return await domain.get(`quiz/getQuizSubmissions/?quizID=${id}`, header)
 }
 
 
@@ -23,5 +31,7 @@ export {
     createQuizQuery,
     updateQuizQuery,
     fetchQuizzesQuery,
-    getQuizQuery
+    getQuizQuery,
+    submitQuestionQuery,
+    getQuizSubmissionsQuery
 }

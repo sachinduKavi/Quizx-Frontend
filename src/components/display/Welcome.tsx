@@ -14,7 +14,7 @@ export default function Welcome() {
 
             <Input placeholder='Add question description (optional)' 
                 className='display-description welcome-description' 
-            value={'This is the description of the form'}/>
+            value={'You can start entering questions and answers'}/>
 
             <Button className='welcome-start'>Start</Button>
 

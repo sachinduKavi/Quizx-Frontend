@@ -14,7 +14,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/questions" element={<Question />} />
+        <Route path="/questions/:quizID" element={<Question />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/addquiz" element={<Addquiz />} />
         <Route path='/editor' element={<MainPage/>}/>

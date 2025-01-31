@@ -12,7 +12,7 @@ export default function Share() {
   return (
     <div className='h-full'>
         <div className="flex flex-row w-full justify-between">
-            <a href="#" target='_BLANK'>{currentQuestion.shareLink}</a>
+            <a href={currentQuestion.shareLink} target='_BLANK'>{currentQuestion.shareLink}</a>
             <Button icon={<CopyOutlined/>}></Button>
         </div>
     </div>
